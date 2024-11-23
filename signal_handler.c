@@ -5,8 +5,12 @@
 
 /**
  * Modified by:
- * 
+ * Justin Mahr
  * Brief summary of modifications:
+ * Removed exit(1) in handle_signal
+ * Added the ability to print the signal to the console
+ * use kill -9 <PID> to exit program now
+ * ps aux | grep 'signal_handler' to get the PID
  */
 
 
@@ -19,8 +23,7 @@
  * @brief Signal handler for SIGINT - prints a message and exits
  */
 void handle_signal() {
-    printf("Received a signal\n");
-    exit(1);
+    printf("Received a signal: %d\n", SIGINT);
 }
 
 int main() {
